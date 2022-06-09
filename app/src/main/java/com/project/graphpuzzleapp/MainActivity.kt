@@ -15,6 +15,6 @@ class MainActivity : AppCompatActivity() {
         var instance: Roads = Roads(test,test)
         var result: Array<Array<Int>> = instance.mapRoads()
 
-        t.text = result[0][1].toString() + result[0][2] + result[0][3]
+        t.text = result[0][1].toString() + result[0][2] + result[0][3];
     }
 }
