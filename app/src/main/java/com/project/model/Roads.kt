@@ -1,11 +1,11 @@
-package com.project.graphpuzzleapp
+package com.project.model
 
 class Roads(dtc: ArrayList<ArrayList<Int>>) {
 
     private var distance: ArrayList<ArrayList<Int>> = dtc
     private var size: Int = dtc.size - 1
     private var roads: ArrayList<ArrayList<String>>
-    private val letters: Array<Char> = arrayOf('A', 'B', 'C', 'D', 'E','F','G','H')
+    val letters: Array<Char> = arrayOf('A', 'B', 'C', 'D', 'E')
 
     init {
         roads = initRoads()
@@ -18,6 +18,15 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
         }
 
         return roads
+    }
+
+    fun randomVertexes():String{
+        var temp: ArrayList<Char> = letters.toCollection(ArrayList())
+        var vertexes: String = temp.random().toString()
+        temp.remove(vertexes[0].toChar())
+        vertexes += temp.random()
+
+        return vertexes
     }
 
     private fun searchWay(fixedPosition: Int) {
@@ -57,5 +66,9 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
         }
 
         return tempMatrix
+    }
+
+    fun vertexIndex(vertex: Char): Int{
+        return letters.indexOf(vertex)
     }
 }
