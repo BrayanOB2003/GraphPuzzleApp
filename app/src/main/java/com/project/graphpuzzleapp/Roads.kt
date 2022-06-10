@@ -1,33 +1,61 @@
 package com.project.graphpuzzleapp
 
-class Roads constructor(dtc: Array<Array<Int>>, road: Array<Array<Int>>){
+class Roads(dtc: ArrayList<ArrayList<Int>>) {
 
-    private var distance: Array<Array<Int>> = dtc
-    private var roads: Array<Array<Int>> = road
+    private var distance: ArrayList<ArrayList<Int>> = dtc
+    private var size: Int = dtc.size - 1
+    private var roads: ArrayList<ArrayList<String>>
+    private val letters: Array<Char> = arrayOf('A', 'B', 'C', 'D', 'E','F','G','H')
 
-    fun mapRoads(): Array<Array<Int>>{
-        var size: Int = distance.size-1
+    init {
+        roads = initRoads()
 
+    }
+
+    fun mapRoads(): ArrayList<ArrayList<String>>{
         for(i in 0..size){
             searchWay(i)
         }
 
-        return distance
+        return roads
     }
 
     private fun searchWay(fixedPosition: Int) {
-        var size: Int = distance.size-1
-        var temporarySum: Int = 0
+        var temporarySum: Int
 
-        for (i in 0..size){
-            for(j in 0..size){
-                if(i != fixedPosition){
-                    temporarySum = distance[i][fixedPosition] + distance[fixedPosition][j]
-                    if(temporarySum < distance[i][j]){
-                        distance[i][j] = temporarySum
+        for (i in 0..size) {
+            for (j in 0..size) {
+                if (i != fixedPosition) {
+                    if (j != fixedPosition) {
+                        temporarySum = distance[i][fixedPosition] + distance[fixedPosition][j]
+                        if (temporarySum < distance[i][j]) {
+                            distance[i][j] = temporarySum
+                            roads[i][j] = letters[fixedPosition].toString()
+                        }
                     }
                 }
             }
         }
+    }
+
+    private fun initRoads():ArrayList<ArrayList<String>>{
+
+        val tempMatrix:ArrayList<ArrayList<String>> = ArrayList()
+        var tempArray: ArrayList<String> = ArrayList()
+
+        for(i in 0..size){
+            for (j in 0..size) {
+                if(i != j){
+                    tempArray.add(letters[j].toString())
+                } else {
+                    tempArray.add("-")
+                }
+
+            }
+            tempMatrix.add(tempArray)
+            tempArray = ArrayList()
+        }
+
+        return tempMatrix
     }
 }

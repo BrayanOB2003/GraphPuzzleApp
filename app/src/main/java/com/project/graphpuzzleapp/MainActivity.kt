@@ -11,10 +11,22 @@ class MainActivity : AppCompatActivity() {
 
         var t: TextView = findViewById(R.id.txt) as TextView
 
-        var test: Array<Array<Int>> =  arrayOf(arrayOf(0,4,5,3), arrayOf(-1,0,1,-1), arrayOf(-2,2,0,1), arrayOf(0,4,2,0))
-        var instance: Roads = Roads(test,test)
-        var result: Array<Array<Int>> = instance.mapRoads()
+        var test: ArrayList<ArrayList<Int>> =
+            arrayOf(arrayOf(0,4,8,100,100).toList(), arrayOf(4,0,1,2,100).toList(), arrayOf(8,100,0,4,2).toList(), arrayOf(100,2,4,0,7).toList(), arrayOf(100,100,2,7,0).toList()).toList() as ArrayList<ArrayList<Int>>
+        var instance: Roads = Roads(test)
+        var result: ArrayList<ArrayList<String>> = instance.mapRoads()
 
-        t.text = result[0][1].toString() + result[0][2] + result[0][3]
+        var text: String = ""
+        var size: Int = result.size - 1
+
+        for(i in 0..size){
+            for(j in 0..size){
+                text += " " + result[i][j]
+            }
+            text += "\n"
+
+        }
+
+        t.text = text
     }
 }
