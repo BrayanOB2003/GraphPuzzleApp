@@ -14,28 +14,22 @@ class Game {
         }
 
         private fun generateRandomArray(): ArrayList<ArrayList<Int>> {
-            //val tempMatrix:ArrayList<ArrayList<Int>> = ArrayList()
-
-
+            val tempMatrix:ArrayList<ArrayList<Int>> = ArrayList()
+            val clone: ArrayList<ArrayList<Int>> = ArrayList()
+            /*
             val tempMatrix: ArrayList<ArrayList<Int>> = ArrayList()
             tempMatrix.add(ArrayList(arrayOf(0,4,8,100,100).toList()))
             tempMatrix.add(ArrayList(arrayOf(4,0,1,2,100).toList()))
             tempMatrix.add(ArrayList(arrayOf(8,100,0,4,2).toList()))
             tempMatrix.add(ArrayList(arrayOf(100,2,4,0,7).toList()))
             tempMatrix.add(ArrayList(arrayOf(100,100,2,7,0).toList()))
+            */
 
-            val clone: ArrayList<ArrayList<Int>> = ArrayList()
-            clone.add(ArrayList(arrayOf(0,4,8,100,100).toList()))
-            clone.add(ArrayList(arrayOf(4,0,1,2,100).toList()))
-            clone.add(ArrayList(arrayOf(8,100,0,4,2).toList()))
-            clone.add(ArrayList(arrayOf(100,2,4,0,7).toList()))
-            clone.add(ArrayList(arrayOf(100,100,2,7,0).toList()))
 
-            matrixGame = clone
 
             var tempArray: ArrayList<Int> = ArrayList()
             val numbers = (0..10)
-/*
+
             for (i in 0..sizeOfArray){
                 for (j in 0..sizeOfArray){
                     if(i != j){
@@ -45,9 +39,11 @@ class Game {
                     }
                 }
                 tempMatrix.add(tempArray)
+                clone.add(ArrayList(tempArray.toList()))
                 tempArray = ArrayList()
             }
-  */
+
+            matrixGame = clone
 
             return tempMatrix
         }
