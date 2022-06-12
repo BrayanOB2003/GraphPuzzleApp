@@ -5,7 +5,7 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
     private var distance: ArrayList<ArrayList<Int>> = dtc
     private var size: Int = dtc.size - 1
     private var roads: ArrayList<ArrayList<String>>
-    val letters: Array<Char> = arrayOf('A', 'B', 'C', 'D', 'E')
+    private val lettersVertex: Array<Char> = arrayOf('A', 'B', 'C', 'D', 'E')
 
     init {
         roads = initRoads()
@@ -20,11 +20,17 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
         return roads
     }
 
-    fun randomVertexes():String{
-        var temp: ArrayList<Char> = letters.toCollection(ArrayList())
-        var vertexes: String = temp.random().toString()
-        temp.remove(vertexes[0].toChar())
-        vertexes += temp.random()
+    fun randomVertexes():ArrayList<String>{
+        var temp: ArrayList<Char> = lettersVertex.toCollection(ArrayList())
+        var vertexes: ArrayList<String> = ArrayList()
+        /*
+        for(i in 0..1){
+            vertexes.add(temp.random().toString())
+            temp.remove(vertexes[i].single())
+        }
+        */
+        vertexes.add("A")
+        vertexes.add("D")
 
         return vertexes
     }
@@ -39,7 +45,7 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
                         temporarySum = distance[i][fixedPosition] + distance[fixedPosition][j]
                         if (temporarySum < distance[i][j]) {
                             distance[i][j] = temporarySum
-                            roads[i][j] = letters[fixedPosition].toString()
+                            roads[i][j] = lettersVertex[fixedPosition].toString()
                         }
                     }
                 }
@@ -55,7 +61,7 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
         for(i in 0..size){
             for (j in 0..size) {
                 if(i != j){
-                    tempArray.add(letters[j].toString())
+                    tempArray.add(lettersVertex[j].toString())
                 } else {
                     tempArray.add("-")
                 }
@@ -69,6 +75,6 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
     }
 
     fun vertexIndex(vertex: Char): Int{
-        return letters.indexOf(vertex)
+        return lettersVertex.indexOf(vertex)
     }
 }
