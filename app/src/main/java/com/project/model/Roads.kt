@@ -3,7 +3,7 @@ package com.project.model
 class Roads(dtc: ArrayList<ArrayList<Int>>) {
 
     private var distance: ArrayList<ArrayList<Int>> = dtc
-    private var size: Int = dtc.size - 1
+    private val size: Int = dtc.size - 1
     private var roads: ArrayList<ArrayList<String>>
     private val lettersVertex: Array<Char> = arrayOf('A', 'B', 'C', 'D', 'E')
 
@@ -20,7 +20,7 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
         return roads
     }
 
-    fun randomVertexes():ArrayList<String>{
+    fun randomVertexes():Array<String>{
         var temp: ArrayList<Char> = lettersVertex.toCollection(ArrayList())
         var vertexes: ArrayList<String> = ArrayList()
         /*
@@ -30,9 +30,9 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
         }
         */
         vertexes.add("A")
-        vertexes.add("D")
+        vertexes.add("E")
 
-        return vertexes
+        return vertexes.toTypedArray()
     }
 
     private fun searchWay(fixedPosition: Int) {

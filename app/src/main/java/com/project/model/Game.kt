@@ -1,32 +1,24 @@
 package com.project.model
 
 class Game {
-        lateinit var matrixGame: ArrayList<ArrayList<Int>>
-        val nodes: ArrayList<String>
+        val matrixGame: ArrayList<ArrayList<Int>>
+        val nodes: Array<String>
+        val way: Array<String>
         private val instance: Roads
-        private var way: ArrayList<String>
         private val sizeOfArray: Int = 4
 
         init {
-            instance = Roads(generateRandomArray())
-            way = ArrayList()
+            val matrix = generateRandomArray()
+            matrixGame = matrix.first
+            instance = Roads(matrix.second)   //the clone of the game matrix is assigned
             nodes = instance.randomVertexes()
+            way = road()
+
         }
 
-        private fun generateRandomArray(): ArrayList<ArrayList<Int>> {
+        private fun generateRandomArray(): Pair<ArrayList<ArrayList<Int>>,ArrayList<ArrayList<Int>>> {
             val tempMatrix:ArrayList<ArrayList<Int>> = ArrayList()
             val clone: ArrayList<ArrayList<Int>> = ArrayList()
-            /*
-            val tempMatrix: ArrayList<ArrayList<Int>> = ArrayList()
-            tempMatrix.add(ArrayList(arrayOf(0,4,8,100,100).toList()))
-            tempMatrix.add(ArrayList(arrayOf(4,0,1,2,100).toList()))
-            tempMatrix.add(ArrayList(arrayOf(8,100,0,4,2).toList()))
-            tempMatrix.add(ArrayList(arrayOf(100,2,4,0,7).toList()))
-            tempMatrix.add(ArrayList(arrayOf(100,100,2,7,0).toList()))
-            */
-
-
-
             var tempArray: ArrayList<Int> = ArrayList()
             val numbers = (0..10)
 
@@ -43,16 +35,15 @@ class Game {
                 tempArray = ArrayList()
             }
 
-            matrixGame = clone
-
-            return tempMatrix
+            return Pair(tempMatrix,clone)
         }
 
-        fun road(): ArrayList<String>{
+        private fun road(): Array<String>{
+            val way: ArrayList<String> = ArrayList()
             val roads: ArrayList<ArrayList<String>> = instance.mapRoads()
             var node0: Int = instance.vertexIndex(nodes[0].single())
             var node1: Int = instance.vertexIndex(nodes[1].single())
-            var nodes: ArrayList<String> = ArrayList(this.nodes.toList())
+            val nodes: ArrayList<String> = ArrayList(this.nodes.toList())
 
 
             way.add(nodes[0])
@@ -69,6 +60,6 @@ class Game {
                 }
             }
 
-            return way
+            return way.toTypedArray()
         }
 }
