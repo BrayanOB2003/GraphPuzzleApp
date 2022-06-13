@@ -11,26 +11,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var t: TextView = findViewById(R.id.txt) as TextView
 
-        var instance: Game = Game()
-        var array: Array<String> = instance.way
-        var text: String = ""
-        var size: Int = array.size - 1
-        var temp: ArrayList<ArrayList<Int>> =  instance.matrixGame
-        text +=  instance.nodes.size.toString() + " " + instance.nodes[0] + " " + instance.nodes[1] + " \n"
-
-        for (i in 0..(temp.size - 1)){
-            for(j in 0..(temp.size - 1)){
-                text += " " + temp[i][j]
-            }
-            text += "\n"
-        }
-
-        for(i in 0..size){
-            text += " " + array[i]
-        }
-
-        t.text = text
     }
 }
