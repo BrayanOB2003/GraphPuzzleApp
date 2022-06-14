@@ -5,7 +5,7 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
     private var distance: ArrayList<ArrayList<Int>> = dtc
     private val size: Int = dtc.size - 1
     private var roads: ArrayList<ArrayList<String>>
-    private val lettersVertex: Array<Char> = arrayOf('A', 'B', 'C', 'D', 'E')
+    val lettersVertex: Array<Char> = arrayOf('A', 'B', 'C', 'D', 'E')
 
     init {
         roads = initRoads()
@@ -22,7 +22,7 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
 
     fun randomVertexes():Array<String>{
         var temp: ArrayList<Char> = lettersVertex.toCollection(ArrayList())
-        var vertexes: ArrayList<String> = ArrayList()
+        val vertexes: ArrayList<String> = ArrayList()
         /*
         for(i in 0..1){
             vertexes.add(temp.random().toString())
@@ -72,9 +72,5 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
         }
 
         return tempMatrix
-    }
-
-    fun vertexIndex(vertex: Char): Int{
-        return lettersVertex.indexOf(vertex)
     }
 }

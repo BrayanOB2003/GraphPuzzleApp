@@ -4,6 +4,7 @@ class Game {
         val matrixGame: ArrayList<ArrayList<Int>>
         val nodes: Array<String>
         val way: Array<String>
+        val vertexes: Array<Char>
         private val instance: Roads
         private val sizeOfArray: Int = 4
 
@@ -11,9 +12,9 @@ class Game {
             val matrix = generateRandomArray()
             matrixGame = matrix.first
             instance = Roads(matrix.second)   //the clone of the game matrix is assigned
+            vertexes = instance.lettersVertex
             nodes = instance.randomVertexes()
             way = road()
-
         }
 
         private fun generateRandomArray(): Pair<ArrayList<ArrayList<Int>>,ArrayList<ArrayList<Int>>> {
@@ -41,8 +42,8 @@ class Game {
         private fun road(): Array<String>{
             val way: ArrayList<String> = ArrayList()
             val roads: ArrayList<ArrayList<String>> = instance.mapRoads()
-            var node0: Int = instance.vertexIndex(nodes[0].single())
-            var node1: Int = instance.vertexIndex(nodes[1].single())
+            var node0: Int = vertexes.indexOf(nodes[0].single())
+            var node1: Int = vertexes.indexOf(nodes[1].single())
             val nodes: ArrayList<String> = ArrayList(this.nodes.toList())
 
 
@@ -50,13 +51,13 @@ class Game {
 
             while (nodes[0] != nodes[1]){
 
-                if(node1 != instance.vertexIndex(roads[node0][node1].single())){
-                    node1 = instance.vertexIndex(roads[node0][node1].single())
+                if(node1 != vertexes.indexOf(roads[node0][node1].single())){
+                    node1 = vertexes.indexOf(roads[node0][node1].single())
                 } else{
                     way.add(roads[node0][node1])
                     nodes[0] = roads[node0][node1]
-                    node0 = instance.vertexIndex(nodes[0].single())
-                    node1 = instance.vertexIndex(nodes[1].single())
+                    node0 = vertexes.indexOf(nodes[0].single())
+                    node1 = vertexes.indexOf(nodes[1].single())
                 }
             }
 
