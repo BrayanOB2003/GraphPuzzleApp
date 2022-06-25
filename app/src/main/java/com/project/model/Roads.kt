@@ -12,14 +12,6 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
 
     }
 
-    fun mapRoads(): ArrayList<ArrayList<String>>{
-        for(i in 0..size){
-            searchWay(i)
-        }
-
-        return roads
-    }
-
     fun randomVertexes():Array<String>{
         var temp: ArrayList<Char> = lettersVertex.toCollection(ArrayList())
         val vertexes: ArrayList<String> = ArrayList()
@@ -33,6 +25,14 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
         vertexes.add("E")
 
         return vertexes.toTypedArray()
+    }
+
+    fun mapRoads(): ArrayList<ArrayList<String>>{
+        for(i in 0..size){
+            searchWay(i)
+        }
+
+        return roads
     }
 
     private fun searchWay(fixedPosition: Int) {

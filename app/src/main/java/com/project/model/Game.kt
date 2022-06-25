@@ -21,19 +21,29 @@ class Game {
             val tempMatrix:ArrayList<ArrayList<Int>> = ArrayList()
             val clone: ArrayList<ArrayList<Int>> = ArrayList()
             var tempArray: ArrayList<Int> = ArrayList()
+            val density = (0..100)
             val numbers = (0..10)
+            val probability: Int = 60
 
             for (i in 0..sizeOfArray){
                 for (j in 0..sizeOfArray){
-                    if(i != j){
+                    if(i != j && density.random() <= probability){
                         tempArray.add(numbers.random())
                     } else {
                         tempArray.add(0)
                     }
                 }
                 tempMatrix.add(tempArray)
-                clone.add(ArrayList(tempArray.toList()))
+                clone.add(ArrayList(tempArray.toList()))   //Clone array list
                 tempArray = ArrayList()
+            }
+
+            for(i in 0..sizeOfArray){
+                tempArray = ArrayList(tempMatrix[i].toList())
+                for(j in 0..sizeOfArray) {
+                    tempMatrix[j][i] = tempArray[j]
+                    clone[i][j] = tempArray[j];
+                }
             }
 
             return Pair(tempMatrix,clone)
