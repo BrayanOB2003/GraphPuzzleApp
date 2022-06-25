@@ -12,7 +12,7 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
 
     }
 
-    fun randomVertexes():Array<String>{
+    fun randomVertexes():Array<String>{ //Nodes where should it find the way
         var temp: ArrayList<Char> = lettersVertex.toCollection(ArrayList())
         val vertexes: ArrayList<String> = ArrayList()
         /*
@@ -35,7 +35,7 @@ class Roads(dtc: ArrayList<ArrayList<Int>>) {
         return roads
     }
 
-    private fun searchWay(fixedPosition: Int) {
+    private fun searchWay(fixedPosition: Int) {  //Floyd-warshall method
         var temporarySum: Int
 
         for (i in 0..size) {

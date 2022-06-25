@@ -17,7 +17,7 @@ class Game {
             way = road()
         }
 
-        private fun generateRandomArray(): Pair<ArrayList<ArrayList<Int>>,ArrayList<ArrayList<Int>>> {
+        private fun generateRandomArray(): Pair<ArrayList<ArrayList<Int>>,ArrayList<ArrayList<Int>>> { //Generate random adjacency matrix with method of Erdos-Renyi
             val tempMatrix:ArrayList<ArrayList<Int>> = ArrayList()
             val clone: ArrayList<ArrayList<Int>> = ArrayList()
             var tempArray: ArrayList<Int> = ArrayList()
@@ -39,7 +39,7 @@ class Game {
             }
 
             for(i in 0..sizeOfArray){
-                tempArray = ArrayList(tempMatrix[i].toList())
+                tempArray = ArrayList(tempMatrix[i].toList()) //Copy rows in columns to do simple graphs
                 for(j in 0..sizeOfArray) {
                     tempMatrix[j][i] = tempArray[j]
                     clone[i][j] = tempArray[j];
@@ -49,7 +49,7 @@ class Game {
             return Pair(tempMatrix,clone)
         }
 
-        private fun road(): Array<String>{
+        private fun road(): Array<String>{ //Take the vertexes where stay shortest way
             val way: ArrayList<String> = ArrayList()
             val roads: ArrayList<ArrayList<String>> = instance.mapRoads()
             var node0: Int = vertexes.indexOf(nodes[0].single())
