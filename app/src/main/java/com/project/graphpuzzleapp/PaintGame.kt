@@ -12,9 +12,9 @@ class PaintGame(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        val figurePaint: Paint = Paint()
+        val figurePaint = Paint()
 
-        val game: Game = Game()
+        val game = Game()
         val height: Int? = canvas?.height?.minus(100)
         val width: Int? = canvas?.width?.minus(100)
         val collectionX: ArrayList<Int> = ArrayList((100..width!! step 150).toMutableList())
@@ -26,11 +26,11 @@ class PaintGame(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
 
         val matrixGame: ArrayList<ArrayList<Int>> = game.matrixGame
 
-        val txtPaint: Paint = Paint()
+        val txtPaint = Paint()
         txtPaint.color = Color.BLUE
         txtPaint.textSize = 40F
 
-        for(i in 0 until matrixGame.size){  //Create random coordenades
+        for(i in 0 until matrixGame.size){  //Create random coordinates
             x = collectionX.random()
             y = collectionY.random()
             coordinatesXY[x] = y
@@ -43,24 +43,24 @@ class PaintGame(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         figurePaint.strokeWidth = 10F
 
 
-        var startTempX: Int
-        var endTempX: Int
+        var startTempX: Float
+        var endTempX: Float
 
-        var averageX: Int
-        var averageY: Int
+        var averageX: Float
+        var averageY: Float
 
         for(i in 0 until matrixGame.size){  //Paint the edges and the costs of these
-            startTempX = coordinatesX[i]
+            startTempX = coordinatesX[i].toFloat()
             for(j in 1 until matrixGame.size){
                 if(matrixGame[i][j] != 0){
-                    endTempX = coordinatesX[j]
-                    canvas?.drawLine(startTempX.toFloat(), coordinatesXY[startTempX]!!.toFloat(),
-                        endTempX.toFloat(), coordinatesXY[endTempX]!!.toFloat(), figurePaint)
+                    endTempX = coordinatesX[j].toFloat()
+                    canvas?.drawLine(startTempX.toFloat(), coordinatesXY[startTempX.toInt()]!!.toFloat(),
+                        endTempX.toFloat(), coordinatesXY[endTempX.toInt()]!!.toFloat(), figurePaint)
 
                     averageX = (startTempX + endTempX) /2;
-                    averageY = (coordinatesXY[startTempX]!! + coordinatesXY[endTempX]!!) / 2
+                    averageY = (coordinatesXY[startTempX.toInt()]!!.toFloat() + coordinatesXY[endTempX.toInt()]!!.toFloat()) / 2
 
-                    canvas?.drawText(matrixGame[i][j].toString(), averageX.toFloat(),averageY.toFloat(), txtPaint)
+                    canvas?.drawText(matrixGame[i][j].toString(), averageX,averageY, txtPaint)
                 }
             }
         }

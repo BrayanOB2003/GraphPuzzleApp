@@ -9,12 +9,80 @@
 
     <com.project.graphpuzzleapp.PaintGame
         android:id="@+id/paint"
-        android:layout_width="wrap_content"
+        android:layout_width="410dp"
+        android:layout_height="426dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/paint"
+        app:layout_constraintVertical_bias="0.328">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vertex1"
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
+        android:hint="@string/wayDefect"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        tools2:ignore="DuplicateSpeakableTextCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vertex5"
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="328dp"
+        android:layout_marginBottom="24dp"
+        android:hint="@string/wayDefect"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vertex4"
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginBottom="24dp"
+        android:hint="@string/wayDefect"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vertex2"
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="24dp"
+        android:hint="@string/wayDefect"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vertex3"
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginBottom="24dp"
+        android:hint="@string/wayDefect"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GraphPuzzleApp</string>
+    <string name="game_button">Jugar</string>
 </resources>
