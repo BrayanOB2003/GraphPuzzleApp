@@ -15,6 +15,7 @@ class PaintGame(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         val figurePaint = Paint()
 
         val game = Game()
+
         val height: Int? = canvas?.height?.minus(100)
         val width: Int? = canvas?.width?.minus(100)
         val collectionX: ArrayList<Int> = ArrayList((100..width!! step 150).toMutableList())
