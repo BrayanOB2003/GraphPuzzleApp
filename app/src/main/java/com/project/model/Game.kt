@@ -23,7 +23,7 @@ class Game {
             var tempArray: ArrayList<Int> = ArrayList()
             val density = (0..100)
             val numbers = (0..10)
-            val probability: Int = 60
+            val probability: Int = 80
 
             for (i in 0..sizeOfArray){
                 for (j in 0..sizeOfArray){

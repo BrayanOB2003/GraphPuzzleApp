@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import com.project.graphpuzzleapp.databinding.ActivityGameBinding
 import com.project.graphpuzzleapp.databinding.ActivityMainBinding
+import com.project.model.Game
 
 class GameActivity : AppCompatActivity() {
 
@@ -17,11 +18,7 @@ class GameActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        var restore : PaintGame = binding.gameGraph
-    }
-
-    override fun onResume() {
-        super.onResume()
-
+        val game = Game()
+        binding.gameGraph.setGame(game)
     }
 }
