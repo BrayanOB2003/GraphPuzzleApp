@@ -2,4 +2,6 @@
     <string name="app_name">GraphPuzzleApp</string>
     <string name="game_button">Jugar</string>
     <string name="wayDefect">V</string>
+    <string name="next_button">Siguiente</string>
+    <string name="text_score">Puntaje:</string>
 </resources>

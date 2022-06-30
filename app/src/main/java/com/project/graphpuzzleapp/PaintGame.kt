@@ -6,11 +6,11 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import com.project.model.Game
+import com.project.model.GraphGame
 
 class PaintGame(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
-    private lateinit var game: Game
+    private lateinit var graphGame: GraphGame
     private var loaded: Boolean = false;
 
     override fun onDraw(canvas: Canvas?) {
@@ -18,7 +18,7 @@ class PaintGame(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
 
         if(loaded){
 
-            val game = this.game
+            val game = this.graphGame
             val figurePaint = Paint()
 
 
@@ -90,8 +90,8 @@ class PaintGame(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         }
     }
 
-    fun setGame(game: Game){
-        this.game = game
+    fun setGame(graphGame: GraphGame){
+        this.graphGame = graphGame
         loaded = true;
     }
 

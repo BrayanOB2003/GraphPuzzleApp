@@ -10,13 +10,40 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:gravity="right"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools2:layout_editor_absoluteX="0dp">
+    
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/text_score"
+                android:gravity="center"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/pause_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="350dp"
+                android:layout_marginRight="5dp"
+                android:text="||" />
+
+
+        </LinearLayout>
 
         <com.project.graphpuzzleapp.PaintGame
             android:id="@+id/gameGraph"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="350dp"
+            android:layout_marginTop="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +67,7 @@
                     android:layout_height="60dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:maxLength="1"
                     android:hint="@string/wayDefect"
                     android:textAlignment="center"
                     android:textColorHint="#78909C"
@@ -52,6 +80,7 @@
                     android:layout_height="60dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:maxLength="1"
                     android:hint="@string/wayDefect"
                     android:textAlignment="center"
                     android:textColorHint="#78909C"
@@ -63,6 +92,7 @@
                     android:layout_height="60dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:maxLength="1"
                     android:hint="@string/wayDefect"
                     android:textAlignment="center"
                     android:textColorHint="#78909C"
@@ -74,9 +104,10 @@
                     android:layout_height="60dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:maxLength="1"
                     android:hint="@string/wayDefect"
                     android:textAlignment="center"
-                    android:textSize="25sp"/>
+                    android:textSize="25sp" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/vertex5"
@@ -84,11 +115,21 @@
                     android:layout_height="60dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:maxLength="1"
                     android:hint="@string/wayDefect"
                     android:textAlignment="center"
-                    android:textSize="25sp"/>
+                    android:textSize="25sp" />
 
             </LinearLayout>
+
         </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/next_button" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        setAnimation(binding.gameImage,R.raw.game)
+        setAnimation(binding.gameImage, R.raw.game)
 
     }
 
-    public fun openGame(view: View){
+    fun openGame(view: View){
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
     }
