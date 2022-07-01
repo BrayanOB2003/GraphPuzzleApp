@@ -1,5 +1,6 @@
 package com.project.graphpuzzleapp
 
+import android.graphics.Canvas
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -26,7 +27,10 @@ class GameActivity : AppCompatActivity() {
         setContentView(view)
 
         newGame()
+        nextGame()
+    }
 
+    private fun nextGame(){
         val begin = System.nanoTime()
         player = ViewModelProvider(this)[Player::class.java]
 
@@ -34,20 +38,15 @@ class GameActivity : AppCompatActivity() {
 
         binding.nextButton.setOnClickListener{
 
-
             player.addScore(1)
 
-            binding.score.text =  binding.score.text.toString() + " " + player.getScore().toString()
-
-            finish()
-            startActivity(intent)
+            this.recreate()
         }
     }
 
     private fun newGame(){
         graphGame = GraphGame()
         binding.gameGraph.setGame(graphGame)
-
     }
 
     private fun nextLevel(time: Int):Int{

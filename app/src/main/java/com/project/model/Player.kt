@@ -2,7 +2,6 @@ package com.project.model
 
 import androidx.lifecycle.ViewModel
 
-
 class Player : ViewModel() {
 
     private var score: Int = 0
