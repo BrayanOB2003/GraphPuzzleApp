@@ -31,14 +31,20 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun nextGame(){
-        val begin = System.nanoTime()
+
         player = ViewModelProvider(this)[Player::class.java]
 
         binding.score.text = binding.score.text.toString() + " " + player.getScore().toString()
 
+        val begin = System.nanoTime()
         binding.nextButton.setOnClickListener{
 
-            player.addScore(1)
+            val end = System.nanoTime()
+            val time = (end - begin).toInt()
+
+            val score = nextLevel(1)
+
+            player.addScore(score)
 
             this.recreate()
         }
@@ -46,6 +52,7 @@ class GameActivity : AppCompatActivity() {
 
     private fun newGame(){
         graphGame = GraphGame()
+        game = Game(graphGame)
         binding.gameGraph.setGame(graphGame)
     }
 

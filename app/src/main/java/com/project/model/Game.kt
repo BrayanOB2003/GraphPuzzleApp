@@ -15,9 +15,10 @@ class Game (game: GraphGame){
 
     fun calculateScore(way: Array<String>, time: Int): Int {
         for (i in gameWay.indices){
+            println(gameWay[i])
             if(way[i] == gameWay[i]){
                 score += hitScore
-            } else {
+            } else if(missScore <= score){
                 score -= missScore
             }
         }

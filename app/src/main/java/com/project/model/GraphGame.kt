@@ -22,15 +22,17 @@ class GraphGame {
             val clone: ArrayList<ArrayList<Int>> = ArrayList()
             var tempArray: ArrayList<Int> = ArrayList()
             val density = (0..100)
-            val numbers = (0..10)
+            val numbers = (1..10)
             val probability: Int = 80
 
             for (i in 0..sizeOfArray){
                 for (j in 0..sizeOfArray){
                     if(i != j && density.random() <= probability){
                         tempArray.add(numbers.random())
-                    } else {
+                    } else if (i == j){
                         tempArray.add(0)
+                    } else {
+                        tempArray.add(100)
                     }
                 }
                 tempMatrix.add(tempArray)
@@ -42,7 +44,7 @@ class GraphGame {
                 tempArray = ArrayList(tempMatrix[i].toList()) //Copy rows in columns to do simple graphs
                 for(j in 0..sizeOfArray) {
                     tempMatrix[j][i] = tempArray[j]
-                    clone[i][j] = tempArray[j];
+                    clone[j][i] = tempArray[j];
                 }
             }
 
@@ -69,10 +71,6 @@ class GraphGame {
                     node0 = vertexes.indexOf(nodes[0].single())
                     node1 = vertexes.indexOf(nodes[1].single())
                 }
-            }
-
-            while(way.size != 5){
-                way.add("")
             }
 
             return way.toTypedArray()

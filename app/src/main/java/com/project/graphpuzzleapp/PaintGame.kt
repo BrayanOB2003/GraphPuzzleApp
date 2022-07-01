@@ -67,7 +67,7 @@ class PaintGame(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
             for(i in 0 until matrixGame.size){  //Paint the edges and the costs of these
                 startTempX = coordinatesX[i].toFloat()
                 for(j in 1 until matrixGame.size){
-                    if(matrixGame[i][j] != 0){
+                    if(matrixGame[i][j] != 100 && matrixGame[i][j] != 0){
                         endTempX = coordinatesX[j].toFloat()
                         canvas?.drawLine(startTempX.toFloat(), coordinatesXY[startTempX.toInt()]!!.toFloat(),
                             endTempX.toFloat(), coordinatesXY[endTempX.toInt()]!!.toFloat(), figurePaint)
