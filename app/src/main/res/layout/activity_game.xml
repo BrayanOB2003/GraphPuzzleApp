@@ -72,6 +72,7 @@
                     android:textAlignment="center"
                     android:textColorHint="#78909C"
                     android:textSize="25sp"
+                    android:inputType="textCapCharacters"
                     tools2:ignore="DuplicateSpeakableTextCheck" />
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -84,7 +85,8 @@
                     android:hint="@string/wayDefect"
                     android:textAlignment="center"
                     android:textColorHint="#78909C"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:inputType="textCapCharacters"/>
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/vertex3"
@@ -96,7 +98,8 @@
                     android:hint="@string/wayDefect"
                     android:textAlignment="center"
                     android:textColorHint="#78909C"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:inputType="textCapCharacters"/>
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/vertex4"
@@ -107,7 +110,8 @@
                     android:maxLength="1"
                     android:hint="@string/wayDefect"
                     android:textAlignment="center"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:inputType="textCapCharacters"/>
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/vertex5"
@@ -118,7 +122,8 @@
                     android:maxLength="1"
                     android:hint="@string/wayDefect"
                     android:textAlignment="center"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:inputType="textCapCharacters"/>
 
             </LinearLayout>
 
